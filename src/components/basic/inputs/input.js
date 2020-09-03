@@ -8,7 +8,7 @@ import {
   LayoutAnimation,
 } from 'react-native';
 
-// import {I} from '../../business/brand/sign-up/style';
+import {I} from './style';
 const {UIManager} = NativeModules;
 
 import {

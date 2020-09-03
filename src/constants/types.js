@@ -1,4 +1,13 @@
+export const TOP_ROUND = 'TOP_ROUND';
+export const BOTTOM_ROUND = 'BOTTOM_ROUND';
+export const ROUND = 'ROUND';
+export const NO_ROUND = 'NO_ROUND';
 export const SHOPPER = 'SHOPPER';
+export const BRAND = 'BRAND';
+export const PROGRESS = 'PROGRESS';
+export const FOLLOWUP = 'FOLLOWUP';
+export const OFFERS = 'OFFERS';
+export const INBOX = 'INBOX';
 export const PROFILE = 'PROFILE';
 export const DONE = 'done';
 export const GO = 'go';

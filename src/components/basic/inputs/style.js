@@ -24,3 +24,10 @@ export const GreenStartEndSmallText = styled.Text`
 
   color: #00a699;
 `;
+
+export const I = styled.Text`
+  font-family: CircularStd-Bold;
+  font-size: 15px;
+  line-height: 28px;
+  color: #c23818;
+`;

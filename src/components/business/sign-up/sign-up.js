@@ -1,13 +1,13 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useLayoutEffect} from 'react';
-import {Field, reduxForm} from 'redux-form';
+import React, { useLayoutEffect } from 'react';
+import { Field, reduxForm } from 'redux-form';
 
-import {Text, StatusBar, View} from 'react-native';
-import {SvgXml} from 'react-native-svg';
+import { Text, StatusBar, View } from 'react-native';
+import { SvgXml } from 'react-native-svg';
 
 import logo from '../../../assets/icons/logo';
-import {withWhiteBackground} from '../../HOC/background';
-import {IconPosition} from './style';
+import { withWhiteBackground } from '../../HOC/background';
+import { IconPosition } from './style';
 
 import TextInput from '../../basic/inputs/input';
 import {
@@ -26,8 +26,9 @@ import {
   H2LoginAsOrangeText,
   PrimaryButton,
 } from '../../basic/index';
-import {TouchableOpacity, ScrollView} from 'react-native-gesture-handler';
-import {deviceRespectedSize} from '../../../utils/calcaulation';
+import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
+import { deviceRespectedSize } from '../../../utils/calcaulation';
+import { Header } from '../../composite/header';
 
 const shared = `
 <svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -40,13 +41,13 @@ const shared = `
 </svg>
 `;
 
-const SignUp = ({navigation, handleSubmit, invalid}) => {
+const SignUp = ({ navigation, handleSubmit, invalid }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
         <TouchableOpacity
           onPress={() => navigation.pop()}
-          style={{paddingTop: 39, paddingLeft: 17}}>
+          style={{ paddingTop: 39, paddingLeft: 17 }}>
           <HeaderIcon xml={shared} padding={8} />
         </TouchableOpacity>
       ),
@@ -58,13 +59,13 @@ const SignUp = ({navigation, handleSubmit, invalid}) => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
+      <Header navigation={navigation} />
 
       <ScrollView>
-        <IconPosition>
-          <SvgXml xml={logo} height={54} width={54} />
-        </IconPosition>
-        <H2LoginAsOrangeText>Welcome to bss</H2LoginAsOrangeText>
-        <View style={{marginTop: 254, marginLeft: 22, marginRight: 22}}>
+        <View style={{alignItems: 'center'}}>
+          <H2LoginAsOrangeText>Welcome to bss</H2LoginAsOrangeText>
+        </View>
+        <View style={{ marginTop: 180, marginLeft: 22, marginRight: 22 }}>
           <Field
             name={'email'}
             component={TextInput}
@@ -84,6 +85,7 @@ const SignUp = ({navigation, handleSubmit, invalid}) => {
             returnKeyType={NEXT}
             onRef={ref => (passwordRef = ref)}
             onSubmitEditing={() => confirmPasswordRef.focus()}
+            isPassword={true}
           />
 
           <Field
@@ -95,6 +97,7 @@ const SignUp = ({navigation, handleSubmit, invalid}) => {
             returnKeyType={GO}
             onRef={ref => (confirmPasswordRef = ref)}
             onSubmitEditing={handleSubmit}
+            isPassword={true}
           />
 
           <Text
@@ -114,10 +117,10 @@ const SignUp = ({navigation, handleSubmit, invalid}) => {
               <ButtonTextWhite>Sign Up</ButtonTextWhite>
             </PrimaryButton>
           ) : (
-            <DisableButton>
-              <ButtonTextWhite>Sign Up</ButtonTextWhite>
-            </DisableButton>
-          )}
+              <DisableButton>
+                <ButtonTextWhite>Sign Up</ButtonTextWhite>
+              </DisableButton>
+            )}
 
           <View
             style={{
@@ -134,58 +137,7 @@ const SignUp = ({navigation, handleSubmit, invalid}) => {
               Or
             </Text>
           </View>
-          <TouchableOpacity
-            style={{
-              height: deviceRespectedSize(45),
-              backgroundColor: 'rgb(255, 255, 255)',
-              borderRadius: 4,
-              justifyContent: 'center',
-              borderWidth: 1,
-              borderColor: 'rgb(34,34,34)',
-              marginTop: deviceRespectedSize(19),
-            }}>
-            <View
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-              }}>
-              <View
-                style={{
-                  backgroundColor: '#ECEFF1',
-                  height: deviceRespectedSize(16),
-                  width: deviceRespectedSize(21),
-                  justifyContent: 'center',
-                  marginTop: deviceRespectedSize(5),
-                  marginRight: deviceRespectedSize(76),
-                }}>
-                <Text
-                  style={{
-                    color: 'rgb(244, 67, 54)',
-                    fontSize: deviceRespectedSize(20),
-                    alignSelf: 'center',
-                    fontWeight: 'bold',
-                  }}>
-                  M
-                </Text>
-              </View>
-              <View>
-                <Text
-                  style={{
-                    color: 'rgb(34, 34, 34)',
-                    alignSelf: 'center',
-                    fontSize: deviceRespectedSize(15),
-                    letterSpacing: -0.33,
-                    paddingRight: deviceRespectedSize(76),
-                    fontWeight: 'bold',
-                  }}>
-                  Sign up with Gmail
-                </Text>
-              </View>
-              <View />
-            </View>
-          </TouchableOpacity>
-          <View style={{marginBottom: 47, marginTop: 40}}>
+          <View style={{ marginBottom: 47, marginTop: 10 }}>
             <Text
               style={{
                 color: 'rgb(34,34,34)',
