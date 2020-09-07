@@ -22,11 +22,20 @@ import { withWhiteBackground } from '../../HOC/background';
 import style from './style';
 import { deviceRespectedSize } from '../../../utils/calcaulation';
 import { Header } from '../../composite/header';
-
+import {getUser} from '../../../actions/user.action'
+import {useDispatch,useSelector} from 'react-redux';
 const UnderLine = withUnderLine(BodyBold);
 
 const ProfileTab = ({ navigation }) => {
   const [profile] = useState('NKN');
+  const dispatch = useDispatch();
+  const {user} = useSelector(state => state.user)
+  useEffect(() => {
+    async function fetchMyAPI() {
+    response = await getUser(dispatch,3)
+    }    
+    fetchMyAPI()
+    }, [])
 
   return (
     <>
@@ -41,7 +50,7 @@ const ProfileTab = ({ navigation }) => {
           </View>
           <View style={{ ...style.flex_row, marginBottom: 6 }}>
             <View style={style.main_text}>
-              <H1 text="Hi, Nuruzzaman Khan" />
+              <H1 text={`hi ${user.name}` } />
               <View style={{ marginTop: 7 }}>
                 <Body2 text="nuruzzaman@email.com" />
               </View>

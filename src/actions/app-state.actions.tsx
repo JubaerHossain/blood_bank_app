@@ -20,5 +20,6 @@ export const createAppStateFailed = () => ({
 
 export const setAppState = async (dispatch: Dispatch<any>, AppState: any) => {
   dispatch(setLoading());
+  
   dispatch(createAppState(AppState));
 };

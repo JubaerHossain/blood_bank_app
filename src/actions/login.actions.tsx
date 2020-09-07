@@ -16,7 +16,7 @@ import {
   export const loginAction = async (dispatch: Dispatch<any>, credential: Credential) => {
     dispatch(setLoading());
     const response = await axios.post('/api/auth/login', credential);
-    setAppState(dispatch, SHOPPER);
+    // setAppState(dispatch, SHOPPER);
     return response.data;
   };
   
