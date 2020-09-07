@@ -1,6 +1,6 @@
 /* eslint-disable */
 const api = {
-    localhost: 'http://64d43f15cae6.ngrok.io/blood_bank_backend',
+    localhost: 'http://621e547a627d.ngrok.io/blood_bank_backend',
     staging: 'https://jsonplaceholder.typicode.com',
     production: '/api/',
   };

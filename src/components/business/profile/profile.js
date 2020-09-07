@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
@@ -22,7 +22,7 @@ import { withWhiteBackground } from '../../HOC/background';
 import style from './style';
 import { deviceRespectedSize } from '../../../utils/calcaulation';
 import { Header } from '../../composite/header';
-import {getUser} from '../../../actions/user.action'
+import {getUser,getUserAction} from '../../../actions/user.action'
 import {useDispatch,useSelector} from 'react-redux';
 const UnderLine = withUnderLine(BodyBold);
 
@@ -31,17 +31,25 @@ const ProfileTab = ({ navigation }) => {
   const dispatch = useDispatch();
   const {user} = useSelector(state => state.user)
   useEffect(() => {
+    console.log('in useeffect');
     async function fetchMyAPI() {
-    response = await getUser(dispatch,3)
+      console.log('In fucntion');
+    response = await getUserAction(dispatch,3)
+    console.log('Response');
+    console.log(response);
     }    
     fetchMyAPI()
     }, [])
+
+    console.log('In profile page');
+    console.log(user);
 
   return (
     <>
       <Header navigation={navigation} />
       <ScrollView>
-        <View style={{ marginLeft: 22, marginTop: 28, marginRight: 24 }}>
+{
+      user &&    <View style={{ marginLeft: 22, marginTop: 28, marginRight: 24 }}>
           <View style={{ alignItems: 'flex-end' }}>
             <UnderLine
               text="Edit"
@@ -90,6 +98,7 @@ const ProfileTab = ({ navigation }) => {
             </View>
           </View>
         </View>
+}
 
       </ScrollView>
     </>

@@ -31,12 +31,18 @@ import {
 
     try {
 
+      console.log('In user action');
         dispatch(setLoading());
         const response = await axios.get(`/v1/api/user/${id}`);
         dispatch(getUser(response.data));
+        console.log('user'+response);
+        
         return response.data;
 
     } catch (error) {
+
+      console.log('In error ');
+      console.log(error);
 
         dispatch(getUserFail(error));  
     }
