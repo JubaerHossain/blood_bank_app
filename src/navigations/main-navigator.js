@@ -13,7 +13,7 @@ import SignUpScreen from '../components/business/sign-up/sign-up-container';
 import LoginScreen from '../components/business/login/login-container';
 import HomeScreen from '../components/business/home/home';
 import ProfileScreen from '../components/business/profile/profile';
-import EditProfileScreen from '../components/business/profile/edit-profile';
+import EditProfileScreen from '../components/business/profile/edit-profile-container';
 
 
 // Import custom things
