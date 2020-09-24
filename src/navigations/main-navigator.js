@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { View, Text, Button, Image, TouchableOpacity } from 'react-native';
+import { View, Button, Image, TouchableOpacity } from 'react-native';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -14,6 +14,7 @@ import LoginScreen from '../components/business/login/login-container';
 import HomeScreen from '../components/business/home/home';
 import ProfileScreen from '../components/business/profile/profile';
 import EditProfileScreen from '../components/business/profile/edit-profile-container';
+import SplashScreen from '../components/business/splash/splash';
 
 
 // Import custom things
@@ -39,6 +40,7 @@ function MyDrawer() {
         },
       }}
       drawerContent={props => <CustomDrawerContent {...props} />}>
+      <Drawer.Screen name="/" component={SplashScreen} />
       <Drawer.Screen name="home" component={HomeScreen} />
       <Drawer.Screen name="login" component={LoginScreen} />
       <Drawer.Screen name="signup" component={SignUpScreen} />

@@ -3,6 +3,7 @@ export const BOTTOM_ROUND = 'BOTTOM_ROUND';
 export const ROUND = 'ROUND';
 export const NO_ROUND = 'NO_ROUND';
 export const SHOPPER = 'SHOPPER';
+export const USER = 'USER';
 export const BRAND = 'BRAND';
 export const PROGRESS = 'PROGRESS';
 export const FOLLOWUP = 'FOLLOWUP';

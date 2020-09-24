@@ -1,5 +1,9 @@
 import {
-    LOADING,GET_USER,GET_FAIL_USER
+    LOADING,
+    CREATE_USER,
+    CREATE_USER_FAILED,
+    GET_USER,
+    GET_USER_FAILED,
   } from '../action-types/user.type';
   
  
@@ -25,12 +29,24 @@ import {
           isLoading: false,
           user: payload,
         };
-      case GET_FAIL_USER:
+      case GET_USER_FAILED:
         return {
           ...state,
           isLoading: false,
           error: payload,
         };
+        case CREATE_USER:
+          return {
+            ...state,
+            isLoading: false,
+            user: payload,
+          };
+        case CREATE_USER_FAILED:
+          return {
+            ...state,
+            isLoading: false,
+            error: payload,
+          };
       default:
         return state;
     }

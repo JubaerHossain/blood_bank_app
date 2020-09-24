@@ -1,7 +1,7 @@
 import {
     LOADING,
     GET_USER,
-    GET_FAIL_USER,
+    GET_USER_FAILED,
   } from '../action-types/user.type';
   import { Dispatch } from 'redux';
 
@@ -22,7 +22,7 @@ import {
 
   export const getUserFail = (user:any) => ({
 
-    type: GET_FAIL_USER,
+    type: GET_USER_FAILED,
     payload:user
     
   });

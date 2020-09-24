@@ -66,38 +66,15 @@ const SignUp = ({ navigation, handleSubmit, invalid }) => {
           <H2LoginAsOrangeText>Welcome to bss</H2LoginAsOrangeText>
         </View>
         <View style={{ marginTop: 180, marginLeft: 22, marginRight: 22 }}>
+        
           <Field
-            name={'email'}
+            name={'mobile_one'}
             component={TextInput}
-            label="Email address"
-            placeholder="Enter your email address"
+            label="Mobile Number"
+            placeholder="Enter your mobile number"
             shape={TOP_ROUND}
             returnKeyType={NEXT}
             onSubmitEditing={() => passwordRef.focus()}
-          />
-
-          <Field
-            name={'password'}
-            component={TextInput}
-            label="Password"
-            placeholder="Enter your password"
-            shape={NO_ROUND}
-            returnKeyType={NEXT}
-            onRef={ref => (passwordRef = ref)}
-            onSubmitEditing={() => confirmPasswordRef.focus()}
-            isPassword={true}
-          />
-
-          <Field
-            name={'confirmPassword'}
-            component={TextInput}
-            label="Confirm password"
-            placeholder="Re-type your password"
-            shape={BOTTOM_ROUND}
-            returnKeyType={GO}
-            onRef={ref => (confirmPasswordRef = ref)}
-            onSubmitEditing={handleSubmit}
-            isPassword={true}
           />
 
           <Text

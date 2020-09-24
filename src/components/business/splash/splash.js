@@ -46,13 +46,7 @@ const Splash = ({
     return (<SafeAreaView style = {
             styles.container
         } >
-        <Image style = {
-            styles.image
-        }
-        source = {
-            require('../../../assets/images/brand_logo.jpg')
-        }
-        /> </SafeAreaView>
+       </SafeAreaView>
     );
 };
 

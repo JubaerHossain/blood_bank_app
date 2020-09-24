@@ -2,8 +2,6 @@ import {
     LOADING
   } from '../action-types/login.types';
   import { Dispatch } from 'redux';
-  import { setAppState } from './app-state.actions';
-  import { SHOPPER } from '../constants/types';
 
 
   import { Credential } from '../models/credential';
