@@ -41,7 +41,6 @@ export default function Input({
 
   let textInput;
 
-  console.log('Respected size: ', deviceRespectedSize(16));
 
   const customLabelStyles = {
     leftFocused: 14,

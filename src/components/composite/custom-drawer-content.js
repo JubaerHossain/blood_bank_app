@@ -1,9 +1,7 @@
-import * as React from 'react';
+import React, { useContext, useLayoutEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { View, Text, Button, Image, TouchableOpacity } from 'react-native';
-
-
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -11,18 +9,17 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 
+import { LocalizationContext } from '../../utils/localization-context';
 import Icon from 'react-native-vector-icons/Octicons';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Entypo from 'react-native-vector-icons/Entypo';
-
-
 import { deviceRespectedSize } from '../../utils/calcaulation';
-
-
 
 export function CustomDrawerContent(props) {
   const { navigation } = props;
+  const { translations } = useContext(LocalizationContext);
+  
   return (
     <DrawerContentScrollView {...props}>
       <View style={{ alignSelf: 'center' }}>
@@ -59,11 +56,11 @@ export function CustomDrawerContent(props) {
             lineHeight: 21,
             textAlign: 'center'
           }}>
-          +8801524789658
-          </Text>
+          01754259863
+        </Text>
       </>
       <DrawerItem
-        label="Profile"
+        label={translations.profile}
         labelStyle={{
           fontSize: 20,
           color: 'black',
@@ -73,30 +70,29 @@ export function CustomDrawerContent(props) {
         onPress={() => navigation.navigate('profile')}
       />
       <DrawerItem
-        label="Settings"
-        style={{marginTop: - deviceRespectedSize(10)}}
+        label={translations.settings}
+        style={{ marginTop: - deviceRespectedSize(10) }}
         labelStyle={{
           fontSize: 20,
           color: 'black',
           fontFamily: 'CircularStd-Book',
         }}
         icon={({ focused, color, size }) => <Ionicon color='black' size={25} name={'settings-outline'} />}
-        // onPress={() => navigation.navigate('login')}
       />
       <DrawerItem
-        style={{marginLeft: 50, marginTop: - deviceRespectedSize(10)}}
-        label="Language"
+        style={{ marginLeft: 50, marginTop: - deviceRespectedSize(10) }}
+        label={translations.language}
         labelStyle={{
           fontSize: 20,
           color: 'black',
           fontFamily: 'CircularStd-Book',
         }}
         icon={({ focused, color, size }) => <Fontisto color='black' size={25} name={'world-o'} />}
-        onPress={() => navigation.navigate('login')}
+        onPress={() => navigation.navigate('settings')}
       />
       <DrawerItem
-        style={{marginLeft: 50, marginTop: - deviceRespectedSize(10)}}
-        label="Ambulance Registration"
+        style={{ marginLeft: 50, marginTop: - deviceRespectedSize(10) }}
+        label={translations.ambulance_registration}
         labelStyle={{
           fontSize: 20,
           color: 'black',
@@ -106,8 +102,8 @@ export function CustomDrawerContent(props) {
         onPress={() => navigation.navigate('login')}
       />
       <DrawerItem
-        label="Message"
-        style={{marginTop: - deviceRespectedSize(10)}}
+        label={translations.message}
+        style={{ marginTop: - deviceRespectedSize(10) }}
         labelStyle={{
           fontSize: 20,
           color: 'black',
@@ -117,8 +113,8 @@ export function CustomDrawerContent(props) {
         onPress={() => navigation.navigate('login')}
       />
       <DrawerItem
-        label="Help"
-        style={{marginTop: - deviceRespectedSize(10)}}
+        label={translations.help}
+        style={{ marginTop: - deviceRespectedSize(10) }}
         labelStyle={{
           fontSize: 20,
           color: 'black',
@@ -128,8 +124,8 @@ export function CustomDrawerContent(props) {
         onPress={() => navigation.navigate('login')}
       />
       <DrawerItem
-        label="BSS Facebook Page"
-        style={{marginTop: - deviceRespectedSize(10)}}
+        label={translations.bss_facebook_page}
+        style={{ marginTop: - deviceRespectedSize(10) }}
         labelStyle={{
           fontSize: 20,
           color: 'black',
@@ -139,8 +135,8 @@ export function CustomDrawerContent(props) {
         onPress={() => navigation.navigate('login')}
       />
       <DrawerItem
-        label="Rating"
-        style={{marginTop: - deviceRespectedSize(10)}}
+        label={translations.rating}
+        style={{ marginTop: - deviceRespectedSize(10) }}
         labelStyle={{
           fontSize: 20,
           color: 'black',
@@ -150,8 +146,8 @@ export function CustomDrawerContent(props) {
         onPress={() => navigation.navigate('login')}
       />
       <DrawerItem
-        label="About Us"
-        style={{marginTop: - deviceRespectedSize(10)}}
+        label={translations.about_us}
+        style={{ marginTop: - deviceRespectedSize(10) }}
         labelStyle={{
           fontSize: 20,
           color: 'black',
@@ -161,8 +157,8 @@ export function CustomDrawerContent(props) {
         onPress={() => navigation.navigate('login')}
       />
       <DrawerItem
-        label="Exit"
-        style={{marginTop: - deviceRespectedSize(10)}}
+        label={translations.exit}
+        style={{ marginTop: - deviceRespectedSize(10) }}
         labelStyle={{
           fontSize: 20,
           color: 'black',

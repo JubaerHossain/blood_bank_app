@@ -2,7 +2,7 @@
 import React, { useLayoutEffect } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-import { Text, StatusBar, View } from 'react-native';
+import { Text, StatusBar, View, TextInput as Input } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
 import logo from '../../../assets/icons/logo';
@@ -42,29 +42,16 @@ const shared = `
 `;
 
 const SignUp = ({ navigation, handleSubmit, invalid }) => {
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerLeft: () => (
-        <TouchableOpacity
-          onPress={() => navigation.pop()}
-          style={{ paddingTop: 39, paddingLeft: 17 }}>
-          <HeaderIcon xml={shared} padding={8} />
-        </TouchableOpacity>
-      ),
-    });
-  }, [navigation]);
-
   let passwordRef, confirmPasswordRef;
 
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <Header navigation={navigation} />
-
       <ScrollView>
-        <View style={{alignItems: 'center'}}>
+        <View style={{ alignItems: 'center' }}>
           <H2LoginAsOrangeText>Welcome to bss</H2LoginAsOrangeText>
         </View>
+
         <View style={{ marginTop: 180, marginLeft: 22, marginRight: 22 }}>
           <Field
             name={'email'}

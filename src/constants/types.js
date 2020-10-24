@@ -23,3 +23,5 @@ export const PREVIEW = 'Preview';
 export const VIEWS = 'Views';
 export const APP_STATE = 'APP_STATE';
 export const TOKEN = 'TOKEN';
+export const BENGALI = 'bn';
+export const ENGLISH = 'en';

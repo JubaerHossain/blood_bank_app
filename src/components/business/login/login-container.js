@@ -1,24 +1,28 @@
-import React from 'react';
-import {StatusBar} from 'react-native';
-import {useDispatch} from 'react-redux';
+import React, { useState } from 'react';
+import { StatusBar } from 'react-native';
+import { useDispatch } from 'react-redux';
 
-import LoginForm from './login';
-import {setAppState} from '../../../actions/app-state.actions.tsx';
-import {SHOPPER} from '../../../constants/types';
+import SendOTP from './send-otp';
+import VerifyOTP from './verify-otp';
+import { verifyOTPAction } from '../../../actions/profile.actions';
 
-const Login = ({navigation, onSubmit}) => {
+const Login = ({ navigation, onSubmit }) => {
   const dispatch = useDispatch();
+  const [screen, setScreen] = useState(1);
 
-  const submittedValues = values => {
-    console.log(values);
-    setAppState(dispatch, SHOPPER);
-    navigation.navigate('PROFILE');
+  const sendOTPForm = values => {
+    setScreen(2);
+  };
+
+  const verifyOTPForm = values => {
+    verifyOTPAction(dispatch, values);
   };
 
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <LoginForm navigation={navigation} onSubmit={submittedValues} />
+      {screen == 1 && <SendOTP navigation={navigation} onSubmit={sendOTPForm} />}
+      {screen == 2 && <VerifyOTP navigation={navigation} onSubmit={verifyOTPForm} />}
     </>
   );
 };

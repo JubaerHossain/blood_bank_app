@@ -1,8 +1,9 @@
-import React, {useEffect} from 'react';
-import {Text, Platform} from 'react-native';
+import React, { useEffect } from 'react';
+import { Text, Platform } from 'react-native';
 import Navigator from './navigations/index';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import store from './store/configure-store';
+import { LocalizationProvider } from './utils/localization-context';
 
 const App = () => {
   useEffect(() => {
@@ -11,7 +12,9 @@ const App = () => {
   });
   return (
     <Provider store={store}>
-      <Navigator />
+      <LocalizationProvider>
+        <Navigator />
+      </LocalizationProvider>
     </Provider>
   );
 };

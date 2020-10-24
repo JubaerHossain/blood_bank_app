@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { View, Text, Button, Image, TouchableOpacity } from 'react-native';
@@ -14,13 +14,19 @@ import LoginScreen from '../components/business/login/login-container';
 import HomeScreen from '../components/business/home/home';
 import ProfileScreen from '../components/business/profile/profile';
 import EditProfileScreen from '../components/business/profile/edit-profile';
+import SettingsScreen from '../components/business/settings/settings-container';
 
 
 // Import custom things
 import { deviceRespectedSize } from '../utils/calcaulation';
 import { CustomDrawerContent } from '../components/composite/custom-drawer-content';
+import AsyncStorage from '@react-native-community/async-storage';
+import { TOKEN } from '../constants/types';
+import { useSelector } from 'react-redux';
 
 const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
+
 
 function MyDrawer() {
   return (
@@ -40,18 +46,40 @@ function MyDrawer() {
       }}
       drawerContent={props => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="home" component={HomeScreen} />
-      <Drawer.Screen name="login" component={LoginScreen} />
-      <Drawer.Screen name="signup" component={SignUpScreen} />
+      <Drawer.Screen name="settings" component={SettingsScreen} />
+      {/* <Drawer.Screen name="login" component={LoginScreen} />
+      <Drawer.Screen name="signup" component={SignUpScreen} /> */}
       <Drawer.Screen name="profile" component={ProfileScreen} />
       <Drawer.Screen name="edit-profile" component={EditProfileScreen} />
     </Drawer.Navigator>
   );
 }
 
+function Auth() {
+  return <Stack.Navigator
+    screenOptions={{
+      headerTitleStyle: {
+        display: 'none',
+      },
+      headerTransparent: true,
+    }}
+  >
+    <Stack.Screen name="login" component={LoginScreen} />
+  </Stack.Navigator>
+}
+
+
+
 export function App() {
+  const { profile } = useSelector(state => state.profile)
+
   return (
     <NavigationContainer>
-      <MyDrawer />
+      {
+
+        profile ? <MyDrawer /> : <Auth />
+
+      }
     </NavigationContainer>
   );
 }
