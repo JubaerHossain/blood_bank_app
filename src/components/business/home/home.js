@@ -50,10 +50,12 @@ const Home = ({ navigation }) => {
                 }}
               >Search Blood</Text>
             </View>
-            <View>
-              <TouchableOpacity style={{ backgroundColor: 'rgb(190, 204, 229)', height: deviceRespectedSize(100), width: deviceRespectedSize(100), borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
+            <TouchableOpacity
+                onPress={()=> navigation.navigate('call-ambulance')}
+            >
+              <View style={{ backgroundColor: 'rgb(190, 204, 229)', height: deviceRespectedSize(100), width: deviceRespectedSize(100), borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
                 <SvgXml xml={ambulance} height={95} />
-              </TouchableOpacity>
+              </View>
               <Text style={{
                 fontSize: 14,
                 letterSpacing: -0.37,
@@ -62,7 +64,7 @@ const Home = ({ navigation }) => {
                 lineHeight: 21,
                 textAlign: 'center'
               }}>Call Ambulance</Text>
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
         <View>

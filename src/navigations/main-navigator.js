@@ -15,6 +15,7 @@ import HomeScreen from '../components/business/home/home';
 import ProfileScreen from '../components/business/profile/profile';
 import EditProfileScreen from '../components/business/profile/edit-profile';
 import SettingsScreen from '../components/business/settings/settings-container';
+import CallAmbulanceScreen from '../components/business/call-ambulance/call-ambulance';
 
 
 // Import custom things
@@ -47,10 +48,9 @@ function MyDrawer() {
       drawerContent={props => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="home" component={HomeScreen} />
       <Drawer.Screen name="settings" component={SettingsScreen} />
-      {/* <Drawer.Screen name="login" component={LoginScreen} />
-      <Drawer.Screen name="signup" component={SignUpScreen} /> */}
       <Drawer.Screen name="profile" component={ProfileScreen} />
       <Drawer.Screen name="edit-profile" component={EditProfileScreen} />
+      <Drawer.Screen name="call-ambulance" component={CallAmbulanceScreen} />
     </Drawer.Navigator>
   );
 }
