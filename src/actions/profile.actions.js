@@ -5,7 +5,7 @@ import axios from '../utils/axios';
 
 const profile = {
     "id": 1,
-    "name": "Admin",
+    "name": null,
     "mobile_one": "01754552453",
     "mobile_two": null,
     "picture": "public/uploads/profile/default.jpg",

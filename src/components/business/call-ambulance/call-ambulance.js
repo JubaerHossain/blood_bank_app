@@ -23,6 +23,9 @@ const CallAmbulance = ({ navigation }) => {
           <Text>
             Call ambulance page.
           </Text>
+          <Text>
+            Under development
+          </Text>
         </View>
       </ScrollView>
     </>

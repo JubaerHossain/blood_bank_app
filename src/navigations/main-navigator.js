@@ -13,9 +13,10 @@ import SignUpScreen from '../components/business/sign-up/sign-up-container';
 import LoginScreen from '../components/business/login/login-container';
 import HomeScreen from '../components/business/home/home';
 import ProfileScreen from '../components/business/profile/profile';
-import EditProfileScreen from '../components/business/profile/edit-profile';
+import EditProfileScreen from '../components/business/profile/edit-profile-container';
 import SettingsScreen from '../components/business/settings/settings-container';
 import CallAmbulanceScreen from '../components/business/call-ambulance/call-ambulance';
+import SearchBlood from '../components/business/search-blood/search-blood';
 
 
 // Import custom things
@@ -51,6 +52,7 @@ function MyDrawer() {
       <Drawer.Screen name="profile" component={ProfileScreen} />
       <Drawer.Screen name="edit-profile" component={EditProfileScreen} />
       <Drawer.Screen name="call-ambulance" component={CallAmbulanceScreen} />
+      <Drawer.Screen name="search-blood" component={SearchBlood} />
     </Drawer.Navigator>
   );
 }

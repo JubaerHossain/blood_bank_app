@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StatusBar, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
@@ -11,8 +11,18 @@ import { Header } from '../../composite/header';
 import { deviceRespectedSize } from '../../../utils/calcaulation';
 import { SvgXml } from 'react-native-svg';
 import ambulance from '../../../assets/icons/ambulance';
+import { useSelector } from 'react-redux';
 
 const Home = ({ navigation }) => {
+
+  const { profile } = useSelector(state => state.profile)
+
+  useEffect(()=>{
+    const { name } = profile;
+    !name && navigation.navigate('edit-profile');
+  }, [profile])
+
+
 
   return (
     <>
@@ -35,10 +45,12 @@ const Home = ({ navigation }) => {
             />
           </View>
           <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginLeft: 50, marginRight: 50 }}>
-            <View>
-              <TouchableOpacity style={{ backgroundColor: 'rgb(190, 204, 229)', height: deviceRespectedSize(100), width: deviceRespectedSize(100), borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('search-blood')}
+            >
+              <View style={{ backgroundColor: 'rgb(190, 204, 229)', height: deviceRespectedSize(100), width: deviceRespectedSize(100), borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
                 <Fontisto name='blood-drop' color='red' size={70} />
-              </TouchableOpacity>
+              </View>
               <Text
                 style={{
                   fontSize: 14,
@@ -49,9 +61,9 @@ const Home = ({ navigation }) => {
                   textAlign: 'center'
                 }}
               >Search Blood</Text>
-            </View>
+            </TouchableOpacity>
             <TouchableOpacity
-                onPress={()=> navigation.navigate('call-ambulance')}
+              onPress={() => navigation.navigate('call-ambulance')}
             >
               <View style={{ backgroundColor: 'rgb(190, 204, 229)', height: deviceRespectedSize(100), width: deviceRespectedSize(100), borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
                 <SvgXml xml={ambulance} height={95} />

@@ -6,6 +6,9 @@ const validate = values => {
   if (!values.mobile_one) {
     errors.mobile_one = 'Mobile number is Required';
   }
+  if (!values.otp) {
+    errors.otp = 'OTP is Required';
+  }
   
   return errors;
 };

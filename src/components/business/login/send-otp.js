@@ -57,8 +57,6 @@ const Login = ({ navigation, handleSubmit, invalid }) => {
             label={translations.mobile_number}
             placeholder={translations.enter_your_mobile}
             shape={ROUND}
-            returnKeyType={NEXT}
-            onSubmitEditing={() => passwordRef.focus()}
           />
 
           <View style={{ marginTop: 13, marginBottom: 19 }} />

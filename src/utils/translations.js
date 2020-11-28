@@ -22,7 +22,27 @@ const translations = {
         otp: 'OTP',
         enter_otp: 'Enter OTP',
         verify_otp: 'Verify OTP',
-        send_otp: 'Send OTP'
+        send_otp: 'Send OTP',
+
+        name: 'Name',
+        enter_your_name: 'Enter your name',
+        second_mobile: 'Second Mobile',
+        enter_your_second_mobile_number: 'Enter your second mobile number',
+        date_of_birth: 'Date of birth',
+        enter_date_of_birth: 'Enter date of birth',
+        permanent_address: 'Permanent Address',
+        enter_your_permanent_address: 'Enter your permanent address',
+        present_address: 'Present Address',
+        enter_your_present_address: 'Enter your present address',
+        educational_qualification: 'Educational Qualification',
+        enter_your_educational_qualification: 'Enter your educational qualification',
+        last_donation_date: 'Last Donation Date',
+        enter_your_last_donation: 'Enter your last donation',
+        save_changes: 'Save changes',
+        previous: 'Previous',
+        next: 'Next',
+        edit_profile: 'Edit profile',
+        change: 'Change'
     },
     bn: {
         profile: 'প্রোফাইল',
@@ -42,7 +62,28 @@ const translations = {
         otp: 'OTP',
         enter_otp: 'OTP প্রবেশ করান',
         verify_otp: 'ভেরিফাই OTP',
-        send_otp: 'OTP পাঠান'
+        send_otp: 'OTP পাঠান',
+
+
+        name: 'নাম',
+        enter_your_name: 'আপনার নাম প্রবেশ করান',
+        second_mobile: 'দ্বিতীয় মোবাইল',
+        enter_your_second_mobile_number: 'আপনার দ্বিতীয় মোবাইল প্রবেশ করান',
+        date_of_birth: 'জন্মতারিখ',
+        enter_date_of_birth: 'জন্মতারিখ প্রবেশ করান',
+        permanent_address: 'স্থায়ী ঠিকানা',
+        enter_your_permanent_address: 'স্থায়ী ঠিকানা প্রবেশ করান',
+        present_address: 'বর্তমান ঠিকানা',
+        enter_your_present_address: 'আপনার বর্তমান ঠিকানা প্রবেশ করান',
+        educational_qualification: 'শিক্ষাগত যোগ্যতা',
+        enter_your_educational_qualification: 'আপনার শিক্ষাগত যোগ্যতা প্রবেশ করান',
+        last_donation_date: 'শেষ রক্তদানের তারিখ',
+        enter_your_last_donation: 'আপনার শেষ রক্তদানের তারিখ প্রবেশ করান',
+        save_changes: 'পরিবর্তন সঞ্চয় করুন',
+        previous: 'পুর্বে যান',
+        next: 'পরে যান',
+        edit_profile: 'প্রোফাইল সম্পাদন',
+        change: 'পরিবর্তন'
     },
 };
 
