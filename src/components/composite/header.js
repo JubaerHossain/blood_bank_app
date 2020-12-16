@@ -4,13 +4,12 @@ import { View, Text, StatusBar, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
 import { deviceRespectedSize } from '../../utils/calcaulation';
 
-export const Header = ({ navigation }) => {
+export const Header = ({ navigation, Middle = null }) => {
 
   return (
       <View
         style={{
-          paddingTop: 8,
-          paddingBottom: 8,
+          paddingBottom: 3,
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'space-between',
@@ -21,7 +20,7 @@ export const Header = ({ navigation }) => {
             height: 50,
             width: 50,
             paddingLeft: deviceRespectedSize(5),
-            paddingTop: 20,
+            paddingTop: 10,
           }}>
           <Icon
             name='three-bars'
@@ -30,8 +29,9 @@ export const Header = ({ navigation }) => {
             onPress={() => navigation.toggleDrawer()}
           />
         </TouchableOpacity>
+        {Middle && <Middle/>}
         <TouchableOpacity
-          style={{ paddingTop: 20, paddingRight: deviceRespectedSize(5), }}>
+          style={{ paddingTop: 10, paddingRight: deviceRespectedSize(5), }}>
           <Icon
             name='home'
             size={30}
