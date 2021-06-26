@@ -2,14 +2,13 @@
 const api = {
     localhost: 'http://b8beff8d4e4d.ngrok.io',
     staging: 'https://jsonplaceholder.typicode.com',
-    production: '/api/',
+    production: 'https://btss.xyz',
   };
   
   const config = {
     api: {              
-      base: api.localhost,
+      base: api.production,
       tokenLabel: 'Authorization',
-      // tokenValue: token => 'Bearer ' + token,
       contentType: 'application/json; charset=UTF-8',
       pageSize: 100,
       tokenCheckMinute: 5,

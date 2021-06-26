@@ -4,6 +4,7 @@ import { View, Text, StatusBar, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import { ScrollView } from 'react-native-gesture-handler';
+import _ from 'lodash';
 
 // Custom import
 import { withWhiteBackground } from '../../HOC/background';
@@ -19,7 +20,7 @@ const Home = ({ navigation }) => {
 
   useEffect(()=>{
     const { name } = profile;
-    !name && navigation.navigate('edit-profile');
+    _.isEmpty(name) && navigation.navigate('edit-profile');
   }, [profile])
 
 

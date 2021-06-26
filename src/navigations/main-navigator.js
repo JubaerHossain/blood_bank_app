@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { View, Text, Button, Image, TouchableOpacity } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {View, Text, Button, Image, TouchableOpacity} from 'react-native';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
-
+import _ from 'lodash';
 
 // Import screens
 import SignUpScreen from '../components/business/sign-up/sign-up-container';
@@ -18,32 +18,31 @@ import SettingsScreen from '../components/business/settings/settings-container';
 import CallAmbulanceScreen from '../components/business/call-ambulance/call-ambulance';
 import SearchBlood from '../components/business/search-blood/search-blood';
 
-
 // Import custom things
-import { deviceRespectedSize } from '../utils/calcaulation';
-import { CustomDrawerContent } from '../components/composite/custom-drawer-content';
+import {deviceRespectedSize} from '../utils/calcaulation';
+import {CustomDrawerContent} from '../components/composite/custom-drawer-content';
 import AsyncStorage from '@react-native-community/async-storage';
-import { TOKEN } from '../constants/types';
-import { useSelector } from 'react-redux';
+import {TOKEN} from '../constants/types';
+import {useSelector} from 'react-redux';
+import {profileSelector} from '../reducers/profile';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
-
 function MyDrawer() {
   return (
     <Drawer.Navigator
-      drawerType='front'
+      drawerType="front"
       drawerStyle={{
         backgroundColor: 'rgb(127,127,127)',
-        width: deviceRespectedSize(360)
+        width: deviceRespectedSize(360),
       }}
       sceneContainerStyle={{
-        backgroundColor: 'white'
+        backgroundColor: 'white',
       }}
       drawerContentOptions={{
         itemStyle: {
-          backgroundColor: 'rgb(127,127,127)'
+          backgroundColor: 'rgb(127,127,127)',
         },
       }}
       drawerContent={props => <CustomDrawerContent {...props} />}>
@@ -58,32 +57,25 @@ function MyDrawer() {
 }
 
 function Auth() {
-  return <Stack.Navigator
-    screenOptions={{
-      headerTitleStyle: {
-        display: 'none',
-      },
-      headerTransparent: true,
-    }}
-  >
-    <Stack.Screen name="login" component={LoginScreen} />
-  </Stack.Navigator>
-}
-
-
-
-export function App() {
-  const { profile } = useSelector(state => state.profile)
-
   return (
-    <NavigationContainer>
-      {
-
-        profile ? <MyDrawer /> : <Auth />
-
-      }
-    </NavigationContainer>
+    <Stack.Navigator
+      screenOptions={{
+        headerTitleStyle: {
+          display: 'none',
+        },
+        headerTransparent: true,
+      }}>
+      <Stack.Screen name="login" component={LoginScreen} />
+    </Stack.Navigator>
   );
 }
 
+export function App() {
+  const {profile} = useSelector(profileSelector);
 
+  return (
+    <NavigationContainer>
+      {_.isEmpty(profile) ? <Auth /> : <MyDrawer />}
+    </NavigationContainer>
+  );
+}

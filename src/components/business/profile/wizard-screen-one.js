@@ -117,6 +117,7 @@ const ProfileTab = ({ navigation , handleSubmit}) => {
             />
           </View>
         </View>
+        <View style={{paddingBottom: 150}}/>
       </ScrollView>
       <Footer onPress={handleSubmit} action={translations.next} text={translations.edit_profile}/>
     </>
